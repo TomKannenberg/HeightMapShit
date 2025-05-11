@@ -2,7 +2,7 @@
 #define NOISE_RENDERER_H
 
 #include "CustomTerrainNoise.hpp"
-#include "CustomTerrainRivers.hpp"
+#include "RiverMask.hpp"
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <stb_image_write.h>  // Include STB Image Write for saving
@@ -28,8 +28,8 @@ public:
 
 private:
     SDL_Renderer* renderer;
-    CustomTerrainRivers noiseMaker;
-    CustomTerrainRivers riverMaker;
+    CustomTerrainNoise noiseMaker;
+    RiverMask riverMaker = RiverMask(noiseMaker);
     bool imageSaved;  // Flag to track if image is saved already
 };
 

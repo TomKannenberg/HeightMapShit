@@ -149,8 +149,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CustomTerrainNoise.cpp" />
-    <ClCompile Include="CustomTerrainRivers.cpp" />
-    <ClCompile Include="CustomTerrainRivers.hpp" />
+    <ClCompile Include="RiverMark.cpp" />
+    <ClCompile Include="RiverMask.hpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NoiseRenderer.cpp" />
     <ClCompile Include="SDLApp.cpp" />

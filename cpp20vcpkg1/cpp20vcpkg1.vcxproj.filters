@@ -27,10 +27,10 @@
     <ClCompile Include="NoiseRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CustomTerrainRivers.hpp">
+    <ClCompile Include="RiverMask.hpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="CustomTerrainRivers.cpp">
+    <ClCompile Include="RiverMark.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

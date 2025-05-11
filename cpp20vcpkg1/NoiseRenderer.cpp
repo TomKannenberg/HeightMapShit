@@ -33,14 +33,18 @@ void NoiseRenderer::renderNoise(int width, int height) {
     Uint32* pixelBuffer = static_cast<Uint32*>(pixels);
     int rowLength = pitch / 4;
 
-    // Render noise to the texture
-    riverMaker.generateRivers(8);
-
-    // Retrieve the flow map where rivers are generated
-    const auto& riverFlow = riverMaker.getRiverFlow();
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
-            float value = riverFlow[y][x];
+            float noise = noiseMaker.makeNoise(x * scale, y * scale) * 0.25f + 0.33f;
+            float rivers = riverMaker.getRiverMask(x, y, noise);
+            float riverProposal = noise - rivers * 0.2f;
+            float value;
+            if (riverProposal < 0.17) {
+                value = riverProposal;
+            } else {
+                value = noise;
+            }
+            //float value = noiseMaker.makeNoise(x * scale, y * scale);
             Uint8 color = static_cast<Uint8>((value + 1.0f) * 127.5f);
             pixelBuffer[y * rowLength + x] = SDL_MapRGBA(SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888), color, color, color, 255);
         }
